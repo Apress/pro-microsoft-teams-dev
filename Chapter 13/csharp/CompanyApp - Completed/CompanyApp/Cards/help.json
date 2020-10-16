@@ -1,0 +1,46 @@
+{
+  "title": "List Card Example",
+  "items": [
+    {
+      "type": "file",
+      "id": "https://proteamsdev.sharepoint.com/teams/new/Shared%20Documents/Report.xlsx",
+      "title": "Team Excel file",
+      "subtitle": "Open a URL",
+      "tap": {
+        "type": "openUrl",
+        "value": "https://contoso.sharepoint.com/teams/new/Shared%20Documents/Report.xlsx"
+      }
+    },
+    {
+      "type": "resultItem",
+      "icon": "https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Trello-128.png",
+      "title": "A generic result",
+      "subtitle": "This is a generic result item",
+      "tap": {
+        "type": "imBack",
+        "value": "generic result returned"
+      }
+    },
+    {
+      "type": "section",
+      "title": "Manager"
+    },
+    {
+      "type": "person",
+      "id": "rickvanrousselt@proteamsdev.onmicrosoft.com",
+      "title": "Rick Van Rousselt",
+      "subtitle": "Author",
+      "tap": {
+        "type": "imBack",
+        "value": "rickvanrousselt@proteamsdev.onmicrosoft.com"
+      }
+    }
+  ],
+  "buttons": [
+    {
+      "type": "openUrl",
+      "title": "Open link",
+      "value": "https://www.apress.com/"
+    }
+  ]
+}

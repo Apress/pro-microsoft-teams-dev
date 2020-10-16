@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CompanyApp.Models.Lunch>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = ViewBag.Layout;
+}
+
+
+<h1>Welcome @ViewBag.UserName, These are your Lunch Options</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Order", "Order", new {  id=item.Id, name="{0}"}, htmlAttributes: new { @class = "menuLink" }))
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+
+    microsoftTeams.initialize();
+
+    microsoftTeams.getContext(function (context) {
+        var theme = context.theme;
+        var color;
+        switch(theme) {
+            case "dark":
+                color = "#F3F2F1";
+            break;
+            case "contrast":
+                color = "#ffff01";
+            break;
+        default:
+                color = "#252423";
+        }
+        var h1Elements = document.getElementsByTagName("h1");
+
+        for(var i = 0; i < h1Elements.length; i++) {
+            h1Elements[i].style.color = color;
+        }
+    });
+
+    microsoftTeams.registerOnThemeChangeHandler(function(theme) {
+        var color = "#252423";
+        if (theme === "default") {
+            color = "#252423";
+        } else if (theme === "dark") {
+            color = "#F3F2F1";
+        } else if (theme === "contrast") {
+            color = "#ffff01";
+        }
+
+        var h1Elements = document.getElementsByTagName("h1");
+
+        for(var i = 0; i < h1Elements.length; i++) {
+            h1Elements[i].style.color = color;
+        }
+
+    });
+
+
+</script>

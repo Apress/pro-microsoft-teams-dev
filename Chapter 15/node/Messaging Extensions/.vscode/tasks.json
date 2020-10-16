@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "ensureTeamsQuit1",
+        "type": "shell",
+        "command": "echo goodfood"
+      },
+      {
+        "label": "ensureTeamsQuit",
+        "detail": "Ensure Microsoft Teams isn't running",
+        "type": "shell",
+        "command": "powershell.exe -File ${cwd}/.vscode/quitTeams.ps1 -ExecutionPolicy Bypass",
+        "presentation": {
+            "echo": false,
+            "reveal": "silent",
+            "focus": false,
+            "panel": "shared",
+            "showReuseMessage": false,
+            "clear": false
+        }
+    }
+    ]
+  }

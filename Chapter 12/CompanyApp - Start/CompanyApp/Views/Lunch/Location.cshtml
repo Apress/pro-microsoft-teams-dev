@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Visit our location";
+    Layout = "_LayoutForLunch";
+}
+
+<h1>Visit our location</h1>
+<script src="~/js/location.js" asp-append-version="true"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiiFfFXB_JgBSzs10jtVrqbjWQ_3m_eCQ&callback=initMap"></script>
+
+
+
+<div id="map" style="height: 300px;"></div>
+
+
+<div>
+    <a href='@Url.Action("Index", "Lunch")' class="btn btn-primary">Return</a>
+</div>
+
+

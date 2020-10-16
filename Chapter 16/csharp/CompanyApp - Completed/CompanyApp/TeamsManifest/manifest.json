@@ -1,0 +1,208 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.5",
+  "version": "1.0.19",
+  "id": "1f1167eb-517c-465b-bf52-6de75a2f4cad",
+  "packageName": "ProTeamsDev.CompanyApp",
+  "developer": {
+    "name": "https://www.rickvanrousselt.com",
+    "websiteUrl": "https://www.rickvanrousselt.com",
+    "privacyUrl": "https://www.rickvanrousselt.com",
+    "termsOfUseUrl": "https://www.rickvanrousselt.com"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "CompanyApp",
+    "full": "My Company App"
+  },
+  "description": {
+    "short": "This Company App is the example for the Pro Teams development book",
+    "full": "This Company app is used as an example for learning Teams development"
+  },
+  "accentColor": "#FFFFFF",
+  "staticTabs": [
+    {
+      "entityId": "LunchTab",
+      "name": "Lunch",
+      "contentUrl": "https://proteamsdev.ngrok.io/lunch?context=teams&name={userPrincipalName}",
+      "websiteUrl": "https://proteamsdev.ngrok.io/lunch",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://proteamsdev.ngrok.io/news/configure",
+      "canUpdateConfiguration": true,
+      "scopes": [ "team", "groupchat" ],
+      "supportedSharePointHosts": [
+        "sharePointFullPage",
+        "sharePointWebPart"
+      ]
+    }
+  ],
+  "connectors": [
+    {
+      "connectorId": "5ebe783d-f432-435d-b3d6-c8891ff30584",
+      "scopes": [
+        "team"
+      ],
+      "configurationUrl": "https://proteamsdev.ngrok.io/connector/configure"
+    }
+  ],
+  "bots": [
+    {
+      "botId": "6ae6e155-6dce-4133-ab9a-ece0416e451d",
+      "needsChannelSelector": false,
+      "isNotificationOnly": false,
+      "scopes": [
+        "team",
+        "personal",
+        "groupchat"
+      ],
+      "supportsFiles": false,
+      "commandLists": [
+        {
+          "scopes": [
+            "team",
+            "personal",
+            "groupchat"
+          ],
+          "commands": [
+            {
+              "title": "Help",
+              "description": "Shows help information"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "6ae6e155-6dce-4133-ab9a-ece0416e451d",
+      "canUpdateConfiguration": true,
+      "commands": [
+        {
+          "id": "searchCmd",
+          "description": "Search our knowledge repository",
+          "title": "Search",
+          "initialRun": false,
+          "type": "query",
+          "context": [ "compose", "commandBox" ],
+          "parameters": [
+            {
+              "name": "searchKeyword",
+              "description": "Enter your search keywords",
+              "title": "Keywords"
+            }
+          ]
+        },
+        {
+          "id": "secondSearchCmd",
+          "description": "Second search we can execute",
+          "title": "Search",
+          "initialRun": false,
+          "type": "query",
+          "context": [ "compose", "commandBox" ],
+          "parameters": [
+            {
+              "name": "secondSearchKeyword",
+              "description": "Enter your second search keywords",
+              "title": "second Keywords"
+            }
+          ]
+        },
+        {
+          "id": "orderLunchOnSaturday",
+          "description": "If you are working on Saturday's you can order lunch here.",
+          "title": "Order Saturday lunch",
+          "type": "action",
+          "context": [ "commandBox", "message", "compose" ],
+          "fetchTask": false,
+          "parameters": [
+            {
+              "name": "Name",
+              "description": "Your name",
+              "title": "Title",
+              "inputType": "text"
+            },
+            {
+              "name": "Choice",
+              "description": "Which sandwich would you like",
+              "title": "Choice",
+              "inputType": "choiceset",
+              "choices": [
+                {
+                  "title": "BLT",
+                  "value": "BLT"
+                },
+                {
+                  "title": "Cheese",
+                  "value": "Cheese"
+                },
+                {
+                  "title": "Ham",
+                  "value": "Ham"
+                }
+              ]
+            },
+            {
+              "name": "Date",
+              "description": "What Saturday are you working",
+              "title": "Date",
+              "inputType": "date"
+            }
+          ]
+        },
+        {
+          "id": "orderLunchWithFetch",
+          "description": "If you are working on Saturday's you can order lunch here.",
+          "title": "Order Saturday lunch with fetch",
+          "type": "action",
+          "context": [ "commandBox", "message", "compose" ],
+          "fetchTask": true
+        },
+        {
+          "id": "orderLunchWithFetch",
+          "description": "If you are working on Saturday's you can order lunch here.",
+          "title": "Order Saturday lunch no Fetch",
+          "type": "action",
+          "context": [ "commandBox", "message", "compose" ],
+          "fetchTask": false,
+          "taskInfo": {
+            "title": "Order lunch",
+            "width": "medium",
+            "height": "medium",
+            "url": "https://proteamsdev.ngrok.io/lunch"
+          }
+        }
+      ],
+      "messageHandlers": [
+        {
+          "type": "link",
+          "value": {
+            "domains": [
+              "proteamsdev.ngrok.io"
+            ]
+          }
+        }
+      ]
+    }
+
+  ],
+  "devicePermissions": [
+    "geolocation",
+    "media"
+  ],
+  "permissions": [
+  ],
+  "validDomains": [
+    "proteamsdev.ngrok.io",
+    "token.botframework.com"
+  ]
+}

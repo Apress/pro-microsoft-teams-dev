@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "name": "teamsproactive",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-zip": "^4.2.0"
+  }
+}

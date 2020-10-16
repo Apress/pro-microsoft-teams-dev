@@ -1,0 +1,1 @@
+Stop-Process -Name 'teams' -ErrorAction SilentlyContinue

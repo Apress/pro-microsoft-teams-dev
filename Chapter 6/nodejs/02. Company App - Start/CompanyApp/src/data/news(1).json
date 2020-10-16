@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "location": "America",
+        "title": "Seattle office voted best in sales",
+        "contents": "fill in"
+    },
+    {
+        "id": "2",
+        "location": "Europe",
+        "title": "Belgium office closed because of renovation",
+        "contents": "fill in"
+    },
+    {
+        "id": "3",
+        "location": "Asia",
+        "title": "Japan office move is getting started",
+        "contents": "fill in"
+    }
+]

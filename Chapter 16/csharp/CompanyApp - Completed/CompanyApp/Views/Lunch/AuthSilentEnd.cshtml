@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Order";
+    Layout = "_LayoutForLunch";
+}
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function () {
+
+        microsoftTeams.initialize();
+
+        // ADAL.js configuration
+        let config = {
+            clientId: "fcf962d3-ab8f-48ee-af6c-c6770b78e63b",
+            redirectUri: window.location.origin + "/lunch/authsilentend", // This should be in the list of redirect uris for the AAD app
+            cacheLocation: "localStorage",
+            navigateToLoginRequestUrl: false,
+        };
+        let authContext = new AuthenticationContext(config);
+
+        if (authContext.isCallback(window.location.hash)) {
+            authContext.handleWindowCallback(window.location.hash);
+            // Only call notifySuccess or notifyFailure if this page is in the authentication popup
+            if (window.opener) {
+                if (authContext.getCachedUser()) {
+                    microsoftTeams.authentication.notifySuccess();
+                } else {
+                    microsoftTeams.authentication.notifyFailure(authContext.getLoginError());
+                }
+            }
+        }
+
+    }, false);
+</script>

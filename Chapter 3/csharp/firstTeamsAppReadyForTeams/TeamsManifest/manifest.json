@@ -1,0 +1,44 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.5",
+    "version": "1.0.0",
+    "id": "34b732e1-a5c6-4400-995c-b2dd4c6b6086",
+    "packageName": "proteamsdev.firstTeamsApp",
+    "developer": {
+        "name": "Rick Van Rousselt",
+        "websiteUrl": "https://www.rickvanrousselt.com",
+        "privacyUrl": "https://www.rickvanrousselt.com",
+        "termsOfUseUrl": "https://www.rickvanrousselt.com"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "MyFirstTeamsApp",
+        "full": "MyFirstTeamsApp"
+    },
+    "description": {
+        "short": "This is my first app in Microsoft Teams",
+        "full": "This is my first app in Microsoft Teams"
+    },
+    "accentColor": "#FFFFFF",
+    "staticTabs": [
+        {
+            "entityId": "MyFirstTeamsAppTab",
+            "name": "MyFirstTeamsAppTab",
+            "contentUrl": "https://ade138d1.ngrok.io",
+            "websiteUrl": "https://ade138d1.ngrok.io",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "ade138d1.ngrok.io"
+    ]
+}

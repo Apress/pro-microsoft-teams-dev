@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CompanyApp.Models.Lunch>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = ViewBag.Layout;
+}
+
+
+<h1>Welcome @ViewBag.UserName, These are your Lunch Options</h1>
+<div><b>for the location:</b> <span id="officeLocation" /></div>
+@* Used for Pop-up authentication*@ 
+<script src="~/js/lunch.js" asp-append-version="true"></script>
+@*Used for Silent Authentication*@
+@*<script src="~/js/lunchSilent.js" asp-append-version="true"></script>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Order", "Order", new { id = item.Id, name = item.Name }, htmlAttributes: new { @class = "menuLink" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div>
+    <a href='@Url.Action("GiveFeedback", "Lunch")' class="btn btn-primary">Give Feedback</a>
+</div>
+<div>
+    <a href='@Url.Action("Location", "Lunch")' class="btn btn-primary">Visit our on-site location</a>
+</div>
+<div>
+    <a href='@Url.Action("Admin", "Lunch")' class="btn btn-primary">Administration</a>
+</div>
+<div>
+    <button id="authenticate" style="" class="btn btn-primary">Authenticate</button>
+</div>

@@ -1,0 +1,11 @@
+{
+  "generator-teams": {
+    "promptValues": {
+      "developer": "RickVanRousselt",
+      "unitTestsEnabled": false,
+      "useAzureAppInsights": false
+    },
+    "libraryName": "firstTeamsApp",
+    "generator-version": "2.11.1"
+  }
+}

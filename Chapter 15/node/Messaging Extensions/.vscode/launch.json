@@ -1,0 +1,22 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+        {
+            "name": "Debug (Development)",
+            "type": "node",
+            "request": "launch",
+            "stopOnEntry": false,
+            "runtimeArgs": [
+                "--installAppPackage=${workspaceRoot}/.publish/Development.zip"
+            ],
+            "windows": {
+                "preLaunchTask": "ensureTeamsQuit",
+                "runtimeExecutable": "${env:LOCALAPPDATA}/Microsoft/Teams/current/teams.exe"
+            },
+            "osx": {
+                "runtimeExecutable": ""
+            },
+            "sourceMaps": false
+        }
+    ]
+}

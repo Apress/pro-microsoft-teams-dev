@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Please give some feedback about your lunch";
+    Layout = "_LayoutForLunch";
+
+}
+
+
+<h1>Please give some feedback about your lunch</h1>
+<script src="~/js/feedback.js" asp-append-version="true"></script>
+
+
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap" class="">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+
+<div>
+    <a href='@Url.Action("Index", "Lunch")' class="btn btn-primary">Return</a>
+</div>

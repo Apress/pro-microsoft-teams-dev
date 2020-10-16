@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Administration";
+    Layout = "_LayoutForLunch";
+}
+
+
+<h1>Notify all users for Lunch and news</h1>
+
+<div>
+    <a href='@Url.Action("NotifyLunch", "Lunch")' class="btn btn-primary">Notify for Lunch</a>
+</div>
+<div>
+    <a href='@Url.Action("NotifyNews", "Lunch")' class="btn btn-primary">Notify for News</a>
+</div>

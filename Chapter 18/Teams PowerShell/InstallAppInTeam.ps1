@@ -1,0 +1,1 @@
+Add-TeamsAppInstallation -AppId '0d582118-0869-42f1-a97f-768aad803f2c' -TeamId '45b99352-d287-402e-adb0-07356c68f669'

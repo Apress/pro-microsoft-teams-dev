@@ -1,0 +1,21 @@
+﻿@model IEnumerable<NewsItem>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutForLunch";
+}
+
+<h1>News overview for your location</h1>
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            @item.Location
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@item.Title</h5>
+            <p class="card-text">@item.Contents</p>
+        </div>
+    </div>
+
+}

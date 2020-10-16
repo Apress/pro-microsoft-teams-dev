@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Configure";
+    Layout = "~/Views/Shared/_LayoutForLunch.cshtml";
+}
+
+<h1>Configure</h1>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    function onClick() {
+        microsoftTeams.settings.setValidityState(true);
+    }
+    microsoftTeams.initialize();
+    microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+        microsoftTeams.settings.setSettings({
+            entityId: "CompanyConnector",
+            contentUrl: "https://proteamsdev.ngrok.io/connector/configure",
+            configName: "CompanyConnectorConfig"
+        });
+        microsoftTeams.settings.getSettings(function (settings) {
+            document.getElementById('webhookUrl').textContent = settings.webhookUrl;
+            // We get the Webhook URL in settings.webhookUrl which needs to be saved.
+            $.ajax({
+                url: '/Save',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    webhookUrl: settings.webhookUrl
+                }),
+                success: function (data, textStatus, jQxhr) {
+                    console.log('webhook created successfully.');
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    console.log('error', errorThrown);
+                }
+            });
+        });
+        saveEvent.notifySuccess();
+    });
+    microsoftTeams.settings.registerOnRemoveHandler(function (removeEvent) {
+        var removeCalled = true;
+    });
+</script>
+
+<p id="webhookUrl"></p>
+<div class="col-md-8">
+    <section id="configSection">
+        <form id="configForm">
+            <input type="Button" name="startConfig" value="Start" onclick="onClick()" /> 
+        </form>
+    </section>
+</div>

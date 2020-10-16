@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "7aad7054-6e2c-4811-b9e5-8ed896c6ecbd",
+		"name": "ProTeamsDev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send text to incoming webhook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "a",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\": \"An alert from Pro Teams Development\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://outlook.office.com/webhook/9a792aa1-489d-4485-b4c1-d6e9662bc854@c1df480e-6f75-4ba5-97a6-efcca25423ee/IncomingWebhook/b7f237baa43841cdb94c8852461afe70/ee61283f-5214-4ddc-8f0d-596740fc439f",
+					"protocol": "https",
+					"host": [
+						"outlook",
+						"office",
+						"com"
+					],
+					"path": [
+						"webhook",
+						"9a792aa1-489d-4485-b4c1-d6e9662bc854@c1df480e-6f75-4ba5-97a6-efcca25423ee",
+						"IncomingWebhook",
+						"b7f237baa43841cdb94c8852461afe70",
+						"ee61283f-5214-4ddc-8f0d-596740fc439f"
+					]
+				},
+				"description": "This POST Request will send a simple sentence to an incoming webhook in Microsoft Teams"
+			},
+			"response": []
+		},
+		{
+			"name": "Send actionable message to incoming webhook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "a",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"@type\": \"MessageCard\",\r\n\t\"@context\": \"https://schema.org/extensions\",\r\n\t\"summary\": \"Happy birthday\",\r\n\t\"themeColor\": \"0078D7\",\r\n\t\"title\": \"Birthday alert: \\\"Time to eat cake\\\"\",\r\n\t\"sections\": [\r\n\t\t{\r\n\t\t\t\"activityTitle\": \"Rick Van Rousselt\",\r\n\t\t\t\"activitySubtitle\": \"20/04/1983\",\r\n\t\t\t\"activityImage\": \"https://images.freeimages.com/images/large-previews/dbc/happy-birthday-1326522.jpg\",\r\n\t\t\t\"facts\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"name\": \"Office Location:\",\r\n\t\t\t\t\t\"value\": \"Belgium\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"name\": \"Time & place\",\r\n\t\t\t\t\t\"value\": \"17:30pm\"\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"text\": \"Do you want to have cake at the company restaurant after hours\"\r\n\t\t}\r\n\t],\r\n\t\"potentialAction\": [\r\n\t\t{\r\n\t\t\t\"@type\": \"ActionCard\",\r\n\t\t\t\"name\": \"Accept and add a comment\",\r\n\t\t\t\"inputs\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"@type\": \"TextInput\",\r\n\t\t\t\t\t\"id\": \"comment\",\r\n\t\t\t\t\t\"title\": \"Enter your comment\",\r\n\t\t\t\t\t\"isMultiline\": true\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"actions\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"@type\": \"HttpPOST\",\r\n\t\t\t\t\t\"name\": \"OK\",\r\n\t\t\t\t\t\"target\": \"https://proteamsdev.ngrok.io/api/BirthdayConfirmation\",\r\n\t\t\t\t\t\"body\": \"{{comment.value}}\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"@type\": \"HttpPOST\",\r\n\t\t\t\"name\": \"No\",\r\n\t\t\t\"target\": \"https://proteamsdev.ngrok.io/api/BirthdayConfirmation?answer=no\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"@type\": \"OpenUri\",\r\n\t\t\t\"name\": \"View news item\",\r\n\t\t\t\"targets\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"os\": \"default\",\r\n\t\t\t\t\t\"uri\": \"https://teams.microsoft.com/l/entity/1f1167eb-517c-465b-bf52-6de75a2f4cad/CompanyNews?context=%7B%22channelId%22%3A%20%2219%3A1473566abaf444e4a2e59b949599820f%40thread.tacv2%22%7D\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://outlook.office.com/webhook/9a792aa1-489d-4485-b4c1-d6e9662bc854@c1df480e-6f75-4ba5-97a6-efcca25423ee/IncomingWebhook/b7f237baa43841cdb94c8852461afe70/ee61283f-5214-4ddc-8f0d-596740fc439f",
+					"protocol": "https",
+					"host": [
+						"outlook",
+						"office",
+						"com"
+					],
+					"path": [
+						"webhook",
+						"9a792aa1-489d-4485-b4c1-d6e9662bc854@c1df480e-6f75-4ba5-97a6-efcca25423ee",
+						"IncomingWebhook",
+						"b7f237baa43841cdb94c8852461afe70",
+						"ee61283f-5214-4ddc-8f0d-596740fc439f"
+					]
+				},
+				"description": "This request posts data into Teams using an actionable message format"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

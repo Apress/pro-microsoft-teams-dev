@@ -1,0 +1,55 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.6/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.6",
+    "version": "{version}",
+    "id": "4e506114-c4b5-41e2-8af9-08934c7a9404",
+    "packageName": "ProTeamsDev.CompanyApp.Node",
+    "developer": {
+        "name": "https://www.rickvanrousselt.com",
+        "websiteUrl": "https://www.rickvanrousselt.com",
+        "privacyUrl": "https://www.rickvanrousselt.com",
+        "termsOfUseUrl": "https://www.rickvanrousselt.com"
+      },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "CompanyApp Node",
+        "full": "My Company App"
+      },
+      "description": {
+        "short": "This Company App is the example for the Pro Teams development book",
+        "full": "This Company app is used as an example for learning Teams development"
+      },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [],
+    "configurableTabs": [
+        {
+            "configurationUrl": "{baseUrl0}/config",
+            "canUpdateConfiguration": true,
+            "scopes": [
+                "team",
+                "groupchat"
+            ]
+        }
+    ],
+    "staticTabs": [
+        {
+            "entityId": "LunchTab",
+            "name": "Lunch",
+            "contentUrl": "{baseUrl0}/personal?theme={theme}",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "*.ngrok.io"
+    ]
+}
